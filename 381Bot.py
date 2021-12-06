@@ -103,6 +103,7 @@ def get_int_ips(incoming_msg):
             response.markdown +="IP Address: UNCONFIGURED\n"
     return response
 def Backups(incoming_msg)
+def loopmaker(incoming_msg)
 # Set the bot greeting.
 bot.set_greeting(greeting)
 
