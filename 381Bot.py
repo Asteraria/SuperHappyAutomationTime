@@ -8,6 +8,7 @@ import useful_skills as useful
 import backup_router_playbook.yaml as Ansible
 import netconf_loopback as netconf
 import netmiko_int as netmiko
+from ansible_playbook_runner import Runner
 
 # Router Info 
 device_address = routers.router['host']
@@ -104,7 +105,7 @@ def get_int_ips(incoming_msg):
     return response
 
 def Backups(incoming_msg)
-
+    Runner(['hosts'], 'backup_router_playbook.yaml').run()
 def loopmaker(incoming_msg)
 
 
