@@ -104,8 +104,7 @@ def get_int_ips(incoming_msg):
             response.markdown +="IP Address: UNCONFIGURED\n"
     return response
 def Backups(incoming_msg)
-Runner(['hosts'], 'backup_router_playbook.yaml').run()
-print
+    Runner(['hosts'], 'backup_router_playbook.yaml').run()
 def loopmaker(incoming_msg)
 # Set the bot greeting.
 bot.set_greeting(greeting)
