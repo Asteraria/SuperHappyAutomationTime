@@ -1,0 +1,3 @@
+Key Items to install:
+      1. Ansible_PlayBook_Runner VIA Pip
+      1a. needed for ansible skill to run
