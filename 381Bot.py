@@ -5,6 +5,9 @@ from webexteamsbot.models import Response
 import routers
 import useless_skills as useless
 import useful_skills as useful
+import backup_router_playbook.yaml as Ansible
+import 
+import 
 
 # Router Info 
 device_address = routers.router['host']
@@ -99,7 +102,7 @@ def get_int_ips(incoming_msg):
         except KeyError:
             response.markdown +="IP Address: UNCONFIGURED\n"
     return response
-
+def Backups(incoming_msg)
 # Set the bot greeting.
 bot.set_greeting(greeting)
 
@@ -114,6 +117,7 @@ bot.add_command("attachmentActions", "*", useless.handle_cards)
 bot.add_command("showcard", "show an adaptive card", useless.show_card)
 bot.add_command("dosomething", "help for do something", useless.do_something)
 bot.add_command("time", "Look up the current time", useless.current_time)
+bot.add_command("Backup it up","Save my Shit","Backups",Ansible.backup_router_playbook.yaml)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
