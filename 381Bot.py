@@ -6,8 +6,8 @@ import routers
 import useless_skills as useless
 import useful_skills as useful
 import backup_router_playbook.yaml as Ansible
-import netconf_loopback as netconf
-import netmiko_int as netmiko
+from netconf_loopback import create_loopbacks 
+from netmiko import int_brief
 from ansible_playbook_runner import Runner
 
 # Router Info 
@@ -107,7 +107,10 @@ def get_int_ips(incoming_msg):
 def Backups(incoming_msg)
     Runner(['hosts'], 'backup_router_playbook.yaml').run()
 def loopmaker(incoming_msg)
+    create_loopbacks()
 
+def show_int_br(incoming_msg)
+    int_brief()
 
 # Set the bot greeting.
 bot.set_greeting(greeting)
@@ -124,8 +127,8 @@ bot.add_command("showcard", "show an adaptive card", useless.show_card)
 bot.add_command("dosomething", "help for do something", useless.do_something)
 bot.add_command("time", "Look up the current time", useless.current_time)
 bot.add_command("Backup it up","Save my Shit","Backups",Ansible.backup_router_playbook.yaml)
-bot.add_command("create loopbacks", "make loops", netconf)
-bot.add_command("show int brief", "show interface brief", netmiko)
+bot.add_command("create loopbacks", "make loops", netconf.create_loopbacks)
+bot.add_command("show int brief", "show interface brief", netmiko.int_brief)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
