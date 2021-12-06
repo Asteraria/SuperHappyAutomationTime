@@ -23,4 +23,4 @@ Connect
     connect to device "R2"
 
 Profile the devices
-    Profile the system for "bgp;config;interface;ospf;arp" on devices "R1;R2" as "./good_snapshot"
+    Profile the system for "config" on devices "R1;R2" as "./good_snapshot"

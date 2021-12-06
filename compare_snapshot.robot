@@ -23,7 +23,7 @@ Connect
     connect to device "R2"
 
 Profile the devices
-    Profile the system for "bgp;config;interface;platform;ospf;arp" on devices "R1;R2" as "./new_snapshot"
+    Profile the system for "config" on devices "R1;R2" as "./new_snapshot"
 
 Compare snapshots
     Compare profile "./good_snapshot" with "./new_snapshot" on devices "R1;R2"
