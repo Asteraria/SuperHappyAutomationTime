@@ -6,8 +6,9 @@ import routers
 import useless_skills as useless
 import useful_skills as useful
 import backup_router_playbook.yaml as Ansible
-import 
-import 
+from ansible_playbook_runner import Runner
+
+
 
 # Router Info 
 device_address = routers.router['host']
@@ -103,6 +104,8 @@ def get_int_ips(incoming_msg):
             response.markdown +="IP Address: UNCONFIGURED\n"
     return response
 def Backups(incoming_msg)
+Runner(['hosts'], 'backup_router_playbook.yaml').run()
+print
 def loopmaker(incoming_msg)
 # Set the bot greeting.
 bot.set_greeting(greeting)
