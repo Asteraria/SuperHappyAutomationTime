@@ -105,6 +105,7 @@ def get_int_ips(incoming_msg):
     return response
 
 def Backups(incoming_msg)
+    response = Response()
     Runner(['hosts'], 'backup_router_playbook.yaml').run()
 def loopmaker(incoming_msg)
     create_loopbacks()
