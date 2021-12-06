@@ -1,16 +1,5 @@
 [Routers]
-router = {"host":"192.168.56.10X",
-            "port":"830",
-            "username":"cisco",
-            "password":"cisco123!",
-            "hostkey_verify":"False" }
-router2 = {"host":"192.168.56.1XX",
-            "port":"830",
-            "username":"cisco",
-            "password":"cisco123!",
-            "hostkey_verify":"False" }
-router3 = {"host":"192.168.56.1XX",
-            "port":"830",
-            "username":"cisco",
-            "password":"cisco123!",
-            "hostkey_verify":"False" }
+CSR1kv  ansible_user=cisco ansible_password=cisco123! ansible_host=192.168.56.102
+CSR2kv  ansible_user=cisco ansible_password=cisco123! ansible_host=192.168.56.104
+
+ 

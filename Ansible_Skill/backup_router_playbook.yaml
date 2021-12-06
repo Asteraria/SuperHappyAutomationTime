@@ -1,6 +1,6 @@
 --- 
 - name: AUTOMATIC BACKUP OF RUNNING-CONFIG 
-  hosts: hosts
+  hosts: Routers
   gather_facts: false 
   connection: local 
   
