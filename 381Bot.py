@@ -3,6 +3,7 @@ from webexteamsbot import TeamsBot
 from webexteamsbot.models import Response
 ### Utilities Libraries
 import routers
+import robot
 import useless_skills as useless
 import useful_skills as useful
 import initial_snapshot.robot as robot1
@@ -108,13 +109,16 @@ def get_int_ips(incoming_msg):
 def Backups(incoming_msg)
     Runner(['hosts'], 'backup_router_playbook.yaml').run()
 def loopmaker(incoming_msg)
-
-def takeSnapshot(incoming_msg)
-#How do we make the bot execute the actual command? I don't really know how this works.
-def compareSnapshot(incoming_msg)
-#How do we make the bot execute the actual command? I don't really know how this works.
-
+#Function to execute robot framework 1
+def takeScreenshot(incoming_msg)
+    robot.run("robot1", stdout=robot_initial)
+    return "Screenshot taken successfully. For more information, check the robot_initial directory"
+#Function to execute robot framework 2 
+def compareScreenshot(incoming_msg)
+    robot.run("robot2", sdout=robot_compare)
+    return "Comparison made. For more information, check the robot_compare directory."
 # Set the bot greeting.
+
 bot.set_greeting(greeting)
 
 # Add Bot's Commmands
@@ -129,8 +133,8 @@ bot.add_command("showcard", "show an adaptive card", useless.show_card)
 bot.add_command("dosomething", "help for do something", useless.do_something)
 bot.add_command("time", "Look up the current time", useless.current_time)
 bot.add_command("Backup it up","Save my Shit","Backups",Ansible.backup_router_playbook.yaml)
-bot.add_command("Take snapshot", "Take a snapshot of current configuration using genie robot", robot1.initial_snapshot.robot)
-bot.add_command("Compare snapshot", "Compare current snapshot of configuration with good snapshot", robot2.compare_snapshot.robot)
+bot.add_command("Take snapshot", "Take a snapshot of current configuration using genie robot", takeScreenshot)
+bot.add_command("Compare snapshot", "Compare current snapshot of configuration with good snapshot", compareScreenshot )
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
