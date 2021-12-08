@@ -6,9 +6,6 @@ import routers
 import robot
 import useless_skills as useless
 import useful_skills as useful
-import initial_snapshot.robot as robot1
-import compare_snapshot.robot as robot2
-import backup_router_playbook.yaml as Ansible
 from ansible_playbook_runner import Runner
 
 
@@ -25,10 +22,10 @@ headers = {'Content-Type': 'application/yang-data+json',
            'Accept': 'application/yang-data+json'}
 
 # Bot Details
-bot_email = 'ArtemisArchitect@webex.bot'
-teams_token = 'Njk0YmExOTMtY2U4ZS00Mjc3LWIzMzEtZmFlNmNiNWU4Mzk3NGIxZjNmYTUtMmEz_P0A1_d6bae168-94e6-4bfa-95a0-88365138f260'
-bot_url = "https://039f-144-13-254-55.ngrok.io" 
-bot_app_name = 'Artemis the Architect'
+bot_email = '381NetBot@webex.bot'
+teams_token = 'MzE1MzRkNzEtNWM2NS00OWI3LWFjYzYtOGIyMDU3NDQwNDI3MzE5ZDNmZTYtNzQ0_P0A1_529b5ae9-ae34-46f8-9993-5c34c3d90856'
+bot_url = "https://753c-144-13-254-51.ngrok.io" 
+bot_app_name = 'Steve'
 
 # Create a Bot Object
 #   Note: debug mode prints out more details about processing to terminal
@@ -106,16 +103,17 @@ def get_int_ips(incoming_msg):
         except KeyError:
             response.markdown +="IP Address: UNCONFIGURED\n"
     return response
-def Backups(incoming_msg)
+def Backups(incoming_msg):
     Runner(['hosts'], 'backup_router_playbook.yaml').run()
-def loopmaker(incoming_msg)
+    return "Backup Config successfully saved."
+#def loopmaker(incoming_msg):
 #Function to execute robot framework 1
-def takeScreenshot(incoming_msg)
-    robot.run("robot1", stdout=robot_initial)
+def takeScreenshot(incoming_msg):
+    robot.run("initial_snapshot.robot")
     return "Screenshot taken successfully. For more information, check the robot_initial directory"
 #Function to execute robot framework 2 
-def compareScreenshot(incoming_msg)
-    robot.run("robot2", sdout=robot_compare)
+def compareScreenshot(incoming_msg):
+    robot.run("compare_snapshot.robot")
     return "Comparison made. For more information, check the robot_compare directory."
 # Set the bot greeting.
 
@@ -132,7 +130,7 @@ bot.add_command("attachmentActions", "*", useless.handle_cards)
 bot.add_command("showcard", "show an adaptive card", useless.show_card)
 bot.add_command("dosomething", "help for do something", useless.do_something)
 bot.add_command("time", "Look up the current time", useless.current_time)
-bot.add_command("Backup it up","Save my Shit","Backups",Ansible.backup_router_playbook.yaml)
+bot.add_command("Backup","Create backup of current config",Backups)
 bot.add_command("Take snapshot", "Take a snapshot of current configuration using genie robot", takeScreenshot)
 bot.add_command("Compare snapshot", "Compare current snapshot of configuration with good snapshot", compareScreenshot )
 # Every bot includes a default "/echo" command.  You can remove it, or any
