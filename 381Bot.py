@@ -6,9 +6,9 @@ import routers
 import robot
 import useless_skills as useless
 import useful_skills as useful
+from netconf_loopback import create_loopbacks 
+from netmiko import int_brief
 from ansible_playbook_runner import Runner
-
-
 
 # Router Info 
 device_address = routers.router['host']
@@ -130,9 +130,12 @@ bot.add_command("attachmentActions", "*", useless.handle_cards)
 bot.add_command("showcard", "show an adaptive card", useless.show_card)
 bot.add_command("dosomething", "help for do something", useless.do_something)
 bot.add_command("time", "Look up the current time", useless.current_time)
+<<<<<<< HEAD
 bot.add_command("Backup","Create backup of current config",Backups)
 bot.add_command("Take snapshot", "Take a snapshot of current configuration using genie robot", takeScreenshot)
 bot.add_command("Compare snapshot", "Compare current snapshot of configuration with good snapshot", compareScreenshot )
+bot.add_command("create loopbacks", "make loops", netconf.create_loopbacks)
+bot.add_command("show int brief", "show interface brief", netmiko.int_brief)
 # Every bot includes a default "/echo" command.  You can remove it, or any
 bot.remove_command("/echo")
 
